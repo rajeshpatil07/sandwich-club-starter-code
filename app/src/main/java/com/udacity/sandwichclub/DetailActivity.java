@@ -56,6 +56,8 @@ public class DetailActivity extends AppCompatActivity {
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.drawable.user_placeholder)
+                .error(R.drawable.user_placeholder_error)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
@@ -82,7 +84,7 @@ public class DetailActivity extends AppCompatActivity {
         tvIngredients.setText(ing);
         String asyknow = "";
         for (int i = 0; sandwich.getAlsoKnownAs().size() > i; i++) {
-            if(sandwich.getAlsoKnownAs().size()>1)
+            if(sandwich.getAlsoKnownAs().size()>0)
                 asyknow += sandwich.getAlsoKnownAs().get(i) + ", ";
             else
                 asyknow += sandwich.getAlsoKnownAs().get(i);
